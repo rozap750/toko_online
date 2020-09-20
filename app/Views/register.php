@@ -1,6 +1,18 @@
 <?= $this->extend('layout'); ?>
 
 <?= $this->section('content'); ?>
+<?php
+$errors = session()->getFlashdata('errors');
+if ($errors) : ?>
+    <div class="alert alert-danger">
+        Woops ada kesalahan:
+        <ul>
+            <?php foreach ($errors as $error) : ?>
+                <li><?= $error; ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
 <h1>View Register</h1>
 <?= form_open('Auth/register') ?>
 <div class="form-group">
