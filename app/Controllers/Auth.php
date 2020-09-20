@@ -4,6 +4,11 @@ namespace App\Controllers;
 
 class Auth extends BaseController
 {
+    public function __construct()
+    {
+        helper('form');
+    }
+
     public function register()
     {
         return view('register');
