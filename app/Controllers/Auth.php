@@ -79,6 +79,7 @@ class Auth extends BaseController
 
     public function logout()
     {
-        # code...
+        $this->session->destroy();
+        return redirect()->to(site_url('auth/login'));
     }
 }
