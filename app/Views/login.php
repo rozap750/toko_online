@@ -15,6 +15,20 @@ $password = [
 ];
 ?>
 <h1>View Login</h1>
+
+<?php
+$errors = session()->getFlashdata('errors');
+if ($errors) : ?>
+    <div class="alert alert-danger">
+        Woops ada kesalahan:
+        <ul>
+            <?php foreach ($errors as $error) : ?>
+                <li><?= $error; ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
 <?= form_open('Auth/login') ?>
 <div class="form-group">
     <?= form_label("Username", "username") ?>
